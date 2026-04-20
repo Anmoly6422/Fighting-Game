@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FightBox Pro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🔥 START SCREEN -->
+<div id="startScreen">
+    <h1>FightBox Pro</h1>
+    <p class="subtitle">Fire. Reflex. Domination.</p>
+
+    <div class="menu">
+        <button onclick="startGame('easy')">Easy</button>
+        <button onclick="startGame('medium')">Medium</button>
+        <button onclick="startGame('hard')">Hard</button>
+    </div>
+
+    <p class="controls">
+        A/D = Move • W = Jump • S = Fireball • SHIFT = Block
+    </p>
+</div>
+
+<!-- 🎮 GAME UI -->
+<div id="gameUI" class="hidden">
+
+    <!-- Top bar -->
+    <div id="topbar">
+
+        <!-- PLAYER -->
+        <div class="player">
+            <div class="label">YOU</div>
+            <div class="health-container">
+                <div id="p1Health" class="health red"></div>
+            </div>
+            <div class="hp-text" id="p1Text">100</div>
+        </div>
+
+        <!-- TIMER -->
+        <div id="timer">60</div>
+
+        <!-- BOT -->
+        <div class="player">
+            <div class="label">BOT</div>
+            <div class="health-container">
+                <div id="p2Health" class="health blue"></div>
+            </div>
+            <div class="hp-text" id="p2Text">100</div>
+        </div>
+
+    </div>
+
+    <!-- RESULT -->
+    <div id="result"></div>
+    <button id="replay" onclick="location.reload()">Replay</button>
+
+</div>
+
+<!-- 💥 HIT FLASH OVERLAY -->
+<div id="overlayFlash"></div>
+
+<!-- 📱 MOBILE CONTROLS -->
+<div id="mobileControls">
+    <div class="left-controls">
+        <button ontouchstart="moveLeft(true)" ontouchend="moveLeft(false)">◀</button>
+        <button ontouchstart="moveRight(true)" ontouchend="moveRight(false)">▶</button>
+    </div>
+
+    <div class="right-controls">
+        <button ontouchstart="jump()">⬆</button>
+        <button ontouchstart="attack()">🔥</button>
+        <button ontouchstart="block(true)" ontouchend="block(false)">🛡</button>
+    </div>
+</div>
+
+<!-- 🕹️ GAME -->
+<canvas></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
